@@ -111,26 +111,39 @@
                 markers:false
             }
         }) 
-    }) 
+    })  
+   let hbuttons = document.querySelectorAll('.Hbuttons') 
+   
+   function handleHover() {
+    this.style.color = 'white';
+    this.style.textShadow = '2px 0 #f52b2b, -2px 0 #f52b2b, 0 2px #f52b2b, 0 -2px #f52b2b, 1px 1px #f52b2b, -1px -1px #f52b2b, 1px -1px #f52b2b, -1px 1px #f52b2b';
+    this.style.transform = 'translate(-64%, -1%)';
+}
+function handleMouseOut() {
+    this.style.color = 'black';
+    this.style.textShadow = ''; 
+    this.style.transform = 'translateX(-63%)';
+}
+hbuttons.forEach(button => {
+    button.addEventListener('mouseover', handleHover);
+    button.addEventListener('mouseout', handleMouseOut);
+});
     let AfterTL = new TimelineLite({scrollTrigger:{ 
         trigger:'.after-scroll', 
         start:'top bottom', 
         end:'top top', 
         markers:false, 
         scrub:0.5,  
-        snap:1
+        snap:1, 
     }}) 
-        AfterTL.to('.Hbuttons',{
-            color:'#fff'
-        }) 
-        .to('.buy-tittle',{
-            x:0
+        AfterTL.to('.absoluter',{
+            x:-20
         }) 
 
     let exitLogoTL = new TimelineLite({scrollTrigger:{ 
-        trigger:'.buy-tittle', 
-        start:'top 19%', 
-        end:'bottom 19%', 
+        trigger:'.after-scroll',  
+        start:'top top', 
+        end:'top -19%', 
         markers:true, 
         scrub:0.5,  
     }})  
@@ -138,7 +151,7 @@
         x:-500
     }) 
     .to('.header',{
-        backgroundColor:'#1e2524' ,
+        backgroundColor:'#fff9ee' ,
         pin:true
     }) 
     
