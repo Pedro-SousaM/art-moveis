@@ -113,14 +113,16 @@
         }) 
     })  
    let hbuttons = document.querySelectorAll('.Hbuttons') 
-   
-   function handleHover() {
+   let returnColor
+   function handleHover() { 
+     returnColor = this.style.color 
+    console.log(returnColor) 
     this.style.color = 'white';
     this.style.textShadow = '2px 0 #f52b2b, -2px 0 #f52b2b, 0 2px #f52b2b, 0 -2px #f52b2b, 1px 1px #f52b2b, -1px -1px #f52b2b, 1px -1px #f52b2b, -1px 1px #f52b2b';
     this.style.transform = 'translate(-64%, -1%)';
 }
 function handleMouseOut() {
-    this.style.color = 'black';
+    this.style.color = returnColor;
     this.style.textShadow = ''; 
     this.style.transform = 'translateX(-63%)';
 }
@@ -134,7 +136,7 @@ hbuttons.forEach(button => {
         end:'top top', 
         markers:false, 
         scrub:0.5,  
-        snap:1, 
+      
     }}) 
         AfterTL.to('.absoluter',{
             x:-20
@@ -145,13 +147,20 @@ hbuttons.forEach(button => {
         start:'top top', 
         end:'top -19%', 
         markers:true, 
-        scrub:0.5,  
+        scrub:0.5,   
+        snap:1
     }})  
     exitLogoTL.to('.logo',{
         x:-500
     }) 
     .to('.header',{
-        backgroundColor:'#fff9ee' ,
+        backgroundColor:'#1e2524' ,
         pin:true
     }) 
+    .to('.Hbuttons',{
+        color:'white'
+    }) 
+    .to('.buy-tittle',{
+        color:'white'
+    })
     
