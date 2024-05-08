@@ -154,13 +154,7 @@ hbuttons.forEach(button => {
         x:-500
     }) 
     .to('.header',{
-        backgroundColor:'#1e2524' ,
+        backgroundColor:'#fff9ee' ,
         pin:true
     }) 
-    .to('.Hbuttons',{
-        color:'white'
-    }) 
-    .to('.buy-tittle',{
-        color:'white'
-    })
     
