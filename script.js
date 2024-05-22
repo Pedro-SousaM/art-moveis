@@ -195,7 +195,8 @@ line1.forEach((line) => {
     });
 })
 function goTo(string) {
-    gsap.to(window, { duration: 1, scrollTo: { y: "." + string, offsetY: 100, autoKill: true } })
+    gsap.to(window, { duration: 1, scrollTo: { y: "." + string, offsetY: 100, autoKill: true } }) 
+    document.querySelector(".wraper > input").checked = false
 }
 
 
