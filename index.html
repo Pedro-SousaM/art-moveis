@@ -5,16 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Art-Móveis</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;800&family=Playfair+Display:ital@1&family=Poppins:wght@200&family=Roboto:wght@100&display=swap');
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
   <header class="header">
     <div class="Hbuttons">
-     <a> Início</a>
+      <a> Início</a>
     </div>
     <div class="Hbuttons">
       Contato
@@ -22,27 +24,39 @@
     <div class="Hbuttons">
       Sobre nós
     </div>
-    <div class="side-menu">
-      Sobre nós
+  </header> 
+  <div class="wraper">
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><span></span></label>
+    <label for="active" class="close"></label>
+    <div class="side-wrapper">
+          <a class="mobile-button" href="./index.html"><span>Início</span></a>
+            <a class="mobile-button"><span>Contato</span></a> 
+            <a class="mobile-button"><span>Sobre nós</span></a>
+            <a onclick="goTo('universitária')"><span>Universitárias</span></a>
+            <a onclick="goTo('infantil')"><span>Infantis</span></a> 
+            <a onclick="goTo('mobilia-escolar')"><span>Mobilia Escolar</span></a>
+            <a onclick="goTo('linha-aço')" ><span>Linha aço</span></a>
     </div>
-  </header>
+
+</div>
   <div class="logo">
     <h1>ART<br>MOVEIS</h1>
   </div>
+  <div class="scroll-box">
   <div class="wrapper">
     <section class="intro">
-      <div class="line"></div>
+      <div class="line"></div> 
     </section>
     <section class="cadeira1 movel">
       <div class="block"></div>
-      <img src="./src/img/Imagem_do_WhatsApp_de_2023-12-18_ý_s__19.08.53_bccdaba5-removebg-preview-transformed.png"
-        alt=""><span class="huge-text">Cadeira1</span>
+      <img src="./src/img/University2.png" onclick="goTo('universitária')" alt=""><span class="huge-text">Escolar</span>
       <div class="caption">
         Cada cadeira produzida pela Art Móveis é um testemunho da dedicação incansável à perfeição. A atenção meticulosa
         aos detalhes, desde a seleção dos materiais até a precisão artesanal na construção, resulta em peças que
         transcendem a funcionalidade básica e se tornam verdadeiras obras de arte.
       </div>
-      <div class="nickname"><span>Cadeira1</span>Cor X</div>
+      <div class="nickname"><span>Cadeira1</span>Cor azul</div>
       <div class="quote">
 
         A Art Móveis é uma verdadeira joia no mundo da fabricação de cadeiras
@@ -50,13 +64,12 @@
     </section>
     <section class="cadeira2 movel">
       <div class="block"></div>
-      <img src="./src/img/Imagem_do_WhatsApp_de_2023-12-18_ý_s__19.08.53_bccdaba5-removebg-preview-transformed.png"
-        alt=""><span class="huge-text">ESCOLAR</span>
+      <img src="./src/img/Escolar9.png"onclick="goTo('infantil')" alt=""><span class="huge-text">Infantil</span>
       <div class="caption">
         A Art Móveis é simplesmente excepcional na fabricação de cadeiras escolares, demonstrando um compromisso
         inabalável com a qualidade, durabilidade e ergonomia desses produtos tão essenciais para o ambiente educacional.
       </div>
-      <div class="nickname"><span>Cadeira escolar</span>Cor Y</div>
+      <div class="nickname"><span>Cadeira escolar</span>Cor amarela</div>
       <div class="quote">
         A durabilidade é uma marca registrada dessas cadeiras. Elas são construídas com materiais de alta qualidade e
         resistência.
@@ -64,7 +77,7 @@
     </section>
     <section class="cadeira3 movel">
       <div class="block"></div>
-      <img src="./src/img/finalVault.png" class="SteelVault" alt="">
+      <img src="./src/img/AÇO3.png" onclick="goTo('linha-aço')" class="SteelVault" alt=""><span class="huge-text">Linha aço</span>
       <div class="caption">
 
         A expertise da Art Móveis na fabricação de móveis de aço, como armários, é verdadeiramente impressionante e
@@ -78,23 +91,29 @@
       </div>
     </section>
   </div>
-  <div class="absoluter">
-    <div class="buy-tittle">
-      MÓVEIS DISPONÍVEIS
-    </div>
+</div> 
+<div class="absoluter">
+  <div class="buy-tittle">
+    MÓVEIS DISPONÍVEIS
   </div>
+</div> 
   <div class="after-scroll">
     <div class="block"></div>
 
     <div class="buy-box">
-      <div class="line-1"  id="line-1">
+
+      <div class="line-title universitária">Cadeira Universitária </div>
+      <hr class="sub-line-title">
+
+      <div class="item-line" >
         <div class="item">
           <div class="card-image">
-            <img src="./src/img/conjunto4.jpg" class="upBright" alt="">
+            <img src="./src/img/University1.png" class="upBright" alt="">
           </div>
           <div class="card-desc">
-            <h3>MESA DE ESCRITÓRIO</h3>
-            <p>Esse Lorem velit id voluptate nulla nulla tempor officia sunt laborum excepteur exc </p>
+            <h3>Carteira Universitária Oblongo<br> Art-móveis Destro</h3>
+            <div class="card-price">R$ 450</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$43<sup>63</sup></span></div>
             <a href="#">
               VER MAIS
             </a>
@@ -102,11 +121,12 @@
         </div>
         <div class="item">
           <div class="card-image">
-            <img src="./src/img/mesaEscritorio.jpg" class="upBright" alt="">
+            <img src="./src/img/University2.png" class="upBright" alt="">
           </div>
           <div class="card-desc">
-            <h3>MESA DE ESCRITÓRIO</h3>
-            <p>Esse Lorem velit id voluptate nulla nulla officia sunt laborum dolore ea magna reprehenderit.</p>
+            <h3>Cadeira Universitária E.i.<br> Art-móveis, C/ Espuma Injetada</h3>
+            <div class="card-price">R$ 700</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$67<sup>86</sup></span></div>
             <a href="#">
               VER MAIS
             </a>
@@ -114,39 +134,374 @@
         </div>
         <div class="item">
           <div class="card-image">
-            <img src="./src/img/mesaEscritorio.jpg" class="upBright" alt="">
+            <img src="./src/img/University3.png" class="upBright" alt="">
           </div>
           <div class="card-desc">
-            <h3>MESA DE ESCRITÓRIO</h3>
-            <p>Esse Lorem velit id voluptate nulla nulla officia sunt laborum dolore ea magna reprehenderit.</p>
-            <a href="https://art-moveis.mercadoshops.com.br/MLB-3572998107-mesa-secretaria-tipo-bir-com-duas-gavetas-art-moveis-_JM">
+            <h3>Cadeira Universitária Calandrada<br> Art-móveis, Poplipropileno</h3>
+            <div class="card-price">R$ 700</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$67<sup>86</sup></span></div>
+            <a
+              href="https://art-moveis.mercadoshops.com.br/MLB-3572998107-mesa-secretaria-tipo-bir-com-duas-gavetas-art-moveis-_JM">
               VER MAIS
             </a>
           </div>
         </div>
         <div class="item">
           <div class="card-image">
-            <img src="./src/img/mesaEscritorio.jpg" class="upBright" alt="">
+            <img src="./src/img/University4.png" class="upBright" alt="">
           </div>
           <div class="card-desc">
-            <h3>MESA DE ESCRITÓRIO</h3>
-            <p>Esse Lorem velit id voluptate nulla nulla tempor officia sunt laborum dolore ea reprehenderit. </p>
+            <h3>Cadeira Universitária Trapézio<br> Art-móveis, Poplipropileno</h3>
+            <div class="card-price">R$ 700</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$67<sup>86</sup></span></div>
             <a href="#">
               VER MAIS
             </a>
           </div>
         </div>
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/University5.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Carteira Universitária Metalon<br>Art-móveis, Destro</h3>
+            <div class="card-price">R$ 450</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x 12x R$43<sup>63</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/University6.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Carteira Universitária<br>Polipropileno, Art-móveis</h3>
+            <div class="card-price">R$ 1000</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x 12x R$43<sup>63</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+      </div>  
+
+      <div class="line-title infantil">Linha Infantil</div>
+      <hr class="sub-line-title">
+
+      <div class="item-line" id="line-1">
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/Escolar1.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Carteira Universitária Oblongo<br> Art-móveis Destro</h3>
+            <div class="card-price">R$ 450</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$43<sup>63</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/Escolar2.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Cadeira Universitária E.i.<br> Art-móveis, C/ Espuma Injetada</h3>
+            <div class="card-price">R$ 700</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$67<sup>86</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/Escolar3.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Cadeira Universitária Calandrada<br> Art-móveis, Poplipropileno</h3>
+            <div class="card-price">R$ 700</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$67<sup>86</sup></span></div>
+            <a
+              href="https://art-moveis.mercadoshops.com.br/MLB-3572998107-mesa-secretaria-tipo-bir-com-duas-gavetas-art-moveis-_JM">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/Escolar4.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Cadeira Universitária Trapézio<br> Art-móveis, Poplipropileno</h3>
+            <div class="card-price">R$ 700</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$67<sup>86</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/Escolar5.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Carteira Universitária Metalon<br>Art-móveis, Destro</h3>
+            <div class="card-price">R$ 450</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x 12x R$43<sup>63</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/Escolar6.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Carteira Universitária<br>Polipropileno, Art-móveis</h3>
+            <div class="card-price">R$ 1000</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x 12x R$43<sup>63</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div> 
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/Escolar7.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Carteira Universitária<br>Polipropileno, Art-móveis</h3>
+            <div class="card-price">R$ 1000</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x 12x R$43<sup>63</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div> 
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/Escolar8.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Carteira Universitária<br>Polipropileno, Art-móveis</h3>
+            <div class="card-price">R$ 1000</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x 12x R$43<sup>63</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div> 
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/Escolar9.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Carteira Universitária<br>Polipropileno, Art-móveis</h3>
+            <div class="card-price">R$ 1000</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$43<sup>63</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div> 
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/Escolar10.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Carteira Universitária<br>Polipropileno, Art-móveis</h3>
+            <div class="card-price">R$ 1000</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$43<sup>63</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div> 
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/Escolar11.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Carteira Universitária<br>Polipropileno, Art-móveis</h3>
+            <div class="card-price">R$ 1000</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$43<sup>63</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+      </div> 
+
+      <div class="line-title mobilia-escolar">Mobilia Escolar</div>
+      <hr class="sub-line-title">
+
+      <div class="item-line" id="line-1">
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/MB1.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Carteira Universitária Oblongo<br> Art-móveis Destro</h3>
+            <div class="card-price">R$ 450</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$43<sup>63</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/MB2.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Cadeira Universitária E.i.<br> Art-móveis, C/ Espuma Injetada</h3>
+            <div class="card-price">R$ 700</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$67<sup>86</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/MB3.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Cadeira Universitária Calandrada<br> Art-móveis, Poplipropileno</h3>
+            <div class="card-price">R$ 700</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$67<sup>86</sup></span></div>
+            <a
+              href="https://art-moveis.mercadoshops.com.br/MLB-3572998107-mesa-secretaria-tipo-bir-com-duas-gavetas-art-moveis-_JM">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/MB4.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Cadeira Universitária Trapézio<br> Art-móveis, Poplipropileno</h3>
+            <div class="card-price">R$ 700</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$67<sup>86</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/MB5.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Carteira Universitária Metalon<br>Art-móveis, Destro</h3>
+            <div class="card-price">R$ 450</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x 12x R$43<sup>63</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/MB6.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Carteira Universitária<br>Polipropileno, Art-móveis</h3>
+            <div class="card-price">R$ 1000</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x 12x R$43<sup>63</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div> 
+        
+      </div> 
+      <div class="line-title linha-aço">Linha aço</div>
+      <hr class="sub-line-title">
+
+      <div class="item-line linha-aço" id="line-1">
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/AÇO1.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Carteira Universitária Oblongo<br> Art-móveis Destro</h3>
+            <div class="card-price">R$ 450</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$43<sup>63</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/AÇO2.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Cadeira Universitária E.i.<br> Art-móveis, C/ Espuma Injetada</h3>
+            <div class="card-price">R$ 700</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$67<sup>86</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/AÇO3.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Cadeira Universitária Calandrada<br> Art-móveis, Poplipropileno</h3>
+            <div class="card-price">R$ 700</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$67<sup>86</sup></span></div>
+            <a
+              href="https://art-moveis.mercadoshops.com.br/MLB-3572998107-mesa-secretaria-tipo-bir-com-duas-gavetas-art-moveis-_JM">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/AÇO4.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Cadeira Universitária Trapézio<br> Art-móveis, Poplipropileno</h3>
+            <div class="card-price">R$ 700</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x R$67<sup>86</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-image">
+            <img src="./src/img/AÇO5.png" class="upBright" alt="">
+          </div>
+          <div class="card-desc">
+            <h3>Carteira Universitária Metalon<br>Art-móveis, Destro</h3>
+            <div class="card-price">R$ 450</div>
+            <div class="sub-card-price">em <span class="greenMarker">12x 12x R$43<sup>63</sup></span></div>
+            <a href="#">
+              VER MAIS
+            </a>
+          </div>
+        </div>
+        
       </div>
-
-
     </div>
   </div>
   <script src="https://unpkg.com/@barba/core"></script>
   <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
-  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script> 
   <script>
-    const lenis = new Lenis()
-    lenis.on('scroll', (e) => {
+    const lenis = new Lenis({
+      duration:1.2,easing: (t)=>Math.min(1,1.001 - Math.pow(2,-10*t))
     })
     function raf(time) {
       lenis.raf(time)
@@ -155,7 +510,8 @@
     requestAnimationFrame(raf)
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
   <script src="https://unpkg.com/split-type"></script>
   <!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/EasePack.min.js"></script>

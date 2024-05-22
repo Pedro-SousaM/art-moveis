@@ -1,160 +1,202 @@
 
+document.querySelectorAll('.side-wrapper > a > span').forEach(span => {
+    span.setAttribute('data-text', span.textContent);
+});
 
-    const sections = gsap.utils.toArray("section"); 
-    console.log(sections) 
-    let scroollAnimation = gsap.to(sections,{
-        xPercent:-100*(sections.length-1), 
-        ease:'none', 
-        scrollTrigger:{
-            trigger:'.wrapper', 
-            pin:true, 
-            scrub:0.5, 
-            snap:1/(sections.length-1), 
-            start:'top top', 
-            end:3000, 
-            
-        },
-    
-    }) 
-    let logoTL = new TimelineLite()
-    logoTL.to('.logo',{
-        fontSize:'2.2rem', 
-        top:'1rem', 
-        left:'5rem',
-        scrollTrigger:{
-            trigger:'.logo', 
-            scrub:0.5,  
-            start:'top top', 
-            end:1030  
-        }
-    }) 
-    gsap.to('.line',{
-      
-        height:'10rem', 
-        scrollTrigger:{
-            trigger:'.line', 
-            scrub:0.5,  
-            start:'center center', 
-            end:2000,  
+gsap.registerPlugin(ScrollTrigger)
+const sections = gsap.utils.toArray("section");
+console.log(sections)
+let scroollAnimation = gsap.to(sections, {
+    xPercent: -100 * (sections.length - 1),
+    ease: 'none',
+    scrollTrigger: {
+        trigger: '.wrapper',
+        pin: true,
+        scrub: 0.5,
+        snap: [0, 1 / (sections.length - 1), 1 / (sections.length - 1) * 2, 1 / (sections.length - 1) * 3],
+        start: 'top top',
+        end: 3000,
+
+    },
+})
+let logoTL = new TimelineLite()
+logoTL.to('.logo', {
+    fontSize: '3.3dvh',
+    top: '1.3rem',
+    y: 0,
+    scrollTrigger: {
+        trigger: '.logo',
+        scrub: 0.5,
+        start: 'top top',
+        end: 1030
+    }
+})
+gsap.to('.line', {
+
+    height: '14dvh',
+    scrollTrigger: {
+        trigger: '.line',
+        scrub: 0.5,
+        start: 'center center',
+        end: 2000,
+    }
+})
+document.querySelectorAll('.movel').forEach((movel) => {
+    gsap.to(movel.querySelector('.caption'), {
+        x: 0,
+        y: 0,
+        scrollTrigger: {
+            containerAnimation: scroollAnimation,
+            trigger: movel.querySelector('.caption'),
+            start: 'top bottom',
+            end: '+=60%',
+            scrub: 0.5,
+            markers: false
         }
     })
-    document.querySelectorAll('.movel').forEach((movel)=>{
-        gsap.to(movel.querySelector('.caption'),{
-            x:0, 
-            y:0, 
-            scrollTrigger:{ 
-                containerAnimation:scroollAnimation, 
-                trigger:movel.querySelector('.caption'), 
-                start: 'top bottom' ,
-                end:'+=1000' ,
-                scrub:0.5, 
-                markers:false
-            }
-        }) 
-        gsap.to(movel.querySelector('.quote'),{
-            y:0,  
-            ease:'none',
-            scrollTrigger:{ 
-                containerAnimation:scroollAnimation, 
-                trigger:movel.querySelector('.quote'), 
-                start: 'top bottom' ,
-                end:'+=20%' ,
-                scrub:0.5, 
-                markers:false
-            }
-        })  
-        gsap.to(movel.querySelector('.nickname'),{
-            y:0,  
-            ease:'none',
-            scrollTrigger:{ 
-                containerAnimation:scroollAnimation, 
-                trigger:movel.querySelector('.nickname'), 
-                start: 'top bottom' ,
-                end:'+=3%' ,
-                scrub:0.5, 
-                markers:false
-            }
-        })  
-        gsap.to(movel.querySelector('.block'),{
-            x:0,  
-            ease:'none',
-            scrollTrigger:{ 
-                containerAnimation:scroollAnimation, 
-                trigger:movel.querySelector('.block'), 
-                start: 'top bottom' ,
-                end:'+='+window.innerWidth ,
-                scrub:0.5, 
-                markers:false
-            }
-        })  
-        gsap.to(movel.querySelector('img'),{
-            y:0,  
-            ease:'none',
-            scrollTrigger:{ 
-                containerAnimation:scroollAnimation, 
-                trigger:movel.querySelector('img'), 
-                start: 'top bottom' ,
-                end:'+=50%',
-                scrub:0.5, 
-                markers:false
-            }
-        })  
-        gsap.to(movel.querySelector('.huge-text'),{
-            y:0,  
-            ease:'none',
-            scrollTrigger:{ 
-                containerAnimation:scroollAnimation, 
-                trigger:movel.querySelector('.huge-text'), 
-                start: 'top bottom' ,
-                end:'+=100%',
-                scrub:0.5, 
-                markers:false
-            }
-        }) 
-    })  
-   let hbuttons = document.querySelectorAll('.Hbuttons') 
-   let returnColor
-   function handleHover() { 
-     returnColor = this.style.color 
-    console.log(returnColor) 
+    gsap.to(movel.querySelector('.quote'), {
+        y: 0,
+        ease: 'none',
+        scrollTrigger: {
+            containerAnimation: scroollAnimation,
+            trigger: movel.querySelector('.quote'),
+            start: 'top bottom',
+            end: '+=20%',
+            scrub: 0.5,
+            markers: false
+        }
+    })
+    gsap.to(movel.querySelector('.nickname'), {
+        y: 0,
+        ease: 'none',
+        scrollTrigger: {
+            containerAnimation: scroollAnimation,
+            trigger: movel.querySelector('.nickname'),
+            start: 'top bottom',
+            end: '+=3%',
+            scrub: 0.5,
+            markers: false
+        }
+    })
+    gsap.to(movel.querySelector('.block'), {
+        x: 0,
+        ease: 'none',
+        scrollTrigger: {
+            containerAnimation: scroollAnimation,
+            trigger: movel.querySelector('.block'),
+            start: 'top bottom',
+            end: '+=' + window.innerWidth,
+            scrub: 0.5,
+            markers: false
+        }
+    })
+    gsap.to(movel.querySelector('img'), {
+        y: 0,
+        ease: 'none',
+        scrollTrigger: {
+            containerAnimation: scroollAnimation,
+            trigger: movel.querySelector('img'),
+            start: 'top bottom',
+            end: '+=50%',
+            scrub: 0.5,
+            markers: false
+        }
+    })
+    gsap.to(movel.querySelector('.huge-text'), {
+        y: 0,
+        yPercent:-50,
+        ease: 'none',
+        scrollTrigger: {
+            containerAnimation: scroollAnimation,
+            trigger: movel.querySelector('.huge-text'),
+            start: 'top bottom',
+            end: '+=100%',
+            scrub: 0.5,
+            markers: false
+        }
+    })
+})
+let hbuttons = document.querySelectorAll('.Hbuttons')
+let returnColor
+function handleHover() {
+    returnColor = this.style.color
+    console.log(returnColor)
     this.style.color = 'white';
-    this.style.textShadow = '2px 0 #f52b2b, -2px 0 #f52b2b, 0 2px #f52b2b, 0 -2px #f52b2b, 1px 1px #f52b2b, -1px -1px #f52b2b, 1px -1px #f52b2b, -1px 1px #f52b2b';
-    this.style.transform = 'translate(-64%, -1%)';
+    this.style.textShadow = '3px 0 #f52b2b, -3px 0 #f52b2b, 0 3px #f52b2b, 0 -3px #f52b2b, 2px 0 #f52b2b, -2px 0 #f52b2b, 0 2px #f52b2b, 0 -2px #f52b2b, 1px 1px #f52b2b, -1px -1px #f52b2b, 1px -1px #f52b2b, -1px 1px #f52b2b';
+    this.style.transform = 'translate(-164%, -1%)';
 }
 function handleMouseOut() {
     this.style.color = returnColor;
-    this.style.textShadow = ''; 
-    this.style.transform = 'translateX(-63%)';
+    this.style.textShadow = '';
+    this.style.transform = 'translateX(-163%)';
 }
 hbuttons.forEach(button => {
     button.addEventListener('mouseover', handleHover);
     button.addEventListener('mouseout', handleMouseOut);
 });
-    let AfterTL = new TimelineLite({scrollTrigger:{ 
-        trigger:'.after-scroll', 
-        start:'top bottom', 
-        end:'top top', 
-        markers:false, 
-        scrub:0.5,  
-      
-    }}) 
-        AfterTL.to('.absoluter',{
-            x:-20
-        }) 
+let AfterTL = new TimelineLite({
+    scrollTrigger: {
+        trigger: '.after-scroll',
+        start: 'top bottom',
+        end: 'top top',
+        markers: false,
+        scrub: 0.5,
 
-    let exitLogoTL = new TimelineLite({scrollTrigger:{ 
-        trigger:'.after-scroll',  
-        start:'top top', 
-        end:'top -19%', 
-        markers:true, 
-        scrub:0.5,   
-        snap:1
-    }})  
-    exitLogoTL.to('.logo',{
-        x:-500
-    }) 
-    .to('.header',{
-        backgroundColor:'#fff9ee' ,
-        pin:true
-    }) 
-    
+    }
+})
+AfterTL.to('.absoluter', {
+    x: "2.4dvw"
+})
+
+let exitLogoTL = new TimelineLite({
+    scrollTrigger: {
+        trigger: '.after-scroll',
+        start: 'top 18%',
+        end: 'top -10%',
+        markers: false,
+        scrub: 0.5,
+        directional: false,
+        snap: [1]
+    }
+});
+exitLogoTL.add('start')
+    .to('.logo', { x: -500 }, 'start')
+    .to('.header', { backgroundColor: '#e9e1d3', pin: true }, 'start')
+
+const line1 = document.querySelectorAll('.item-line');
+line1.forEach((line) => {
+    let isMouseDown = false;
+    let startX;
+    let scrollLeft;
+
+    line.addEventListener('mousedown', (e) => {
+        isMouseDown = true;
+        line.style.cursor = "grabbing"
+        startX = e.pageX - line.offsetLeft;
+        scrollLeft = line.scrollLeft;
+    });
+
+    line.addEventListener('mouseleave', () => {
+        isMouseDown = false;
+        line.style.cursor = "grab"
+    });
+
+    line.addEventListener('mouseup', () => {
+        isMouseDown = false;
+        line.style.cursor = "grab"
+    });
+
+    line.addEventListener('mousemove', (e) => {
+        if (!isMouseDown) return;
+        e.preventDefault();
+        const x = e.pageX - line.offsetLeft;
+        const walk = (x - startX) * 1.3;
+        line.scrollLeft = scrollLeft - walk;
+    });
+})
+function goTo(string) {
+    gsap.to(window, { duration: 1, scrollTo: { y: "." + string, offsetY: 100, autoKill: true } })
+}
+
+
+
