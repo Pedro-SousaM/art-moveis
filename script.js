@@ -3,7 +3,17 @@ document.querySelectorAll('.side-wrapper > a > span').forEach(span => {
     span.setAttribute('data-text', span.textContent);
 });
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
+
+// if there are objects that may get inline styles added (like via tweens) that should get reverted, use ScrollTrigger.saveStyles() initially so that the current inline styles are saved for later reversion. It's not always necessary, but it goes well with ScrollTrigger.matchMedia() so we figured it'd make sense to show it here (it's not needed in this demo)
+ScrollTrigger.saveStyles(".mobile, .desktop");
+
+/*** Different ScrollTrigger setups for various screen sizes (media queries) ***/
+ScrollTrigger.matchMedia({
+	
+	// desktop
+	"(min-width: 800px)": function() {
+	
 const sections = gsap.utils.toArray("section");
 console.log(sections)
 let scroollAnimation = gsap.to(sections, {
@@ -32,7 +42,6 @@ logoTL.to('.logo', {
     }
 })
 gsap.to('.line', {
-
     height: '14dvh',
     scrollTrigger: {
         trigger: '.line',
@@ -116,6 +125,123 @@ document.querySelectorAll('.movel').forEach((movel) => {
         }
     })
 })
+  }, 
+  
+	// mobile
+	"(max-width: 799px)": function() {
+	const sections = gsap.utils.toArray("section");
+console.log(sections)
+let scroollAnimation = gsap.to(sections, {
+    ease: 'none',
+    scrollTrigger: {
+        trigger: '.wrapper',
+        scrub: 0.5,
+        snap: 1 / (sections.length),
+        start: 'top top',
+        end: 'bottom top',
+
+    },
+})
+let logoTL = new TimelineLite()
+logoTL.to('.logo', {
+    fontSize: '3.3dvh',
+    top: '1.3rem',
+    y: 0, 
+    scrollTrigger: {
+        trigger: '.logo',
+        scrub: 0.5,
+        start: 'top top',
+        end:'+='+window.innerHeight/1.5
+    }
+})
+gsap.to('.line', {
+    height: '14dvh',
+    scrollTrigger: {
+        trigger: '.line',
+        scrub: 0.5,
+        start: 'center center',
+        end: 2000,
+    }
+})
+document.querySelectorAll('.movel').forEach((movel) => { 
+    const splitChars = movel.querySelectorAll(".quote")
+    splitChars.forEach((char) => {
+    const text = new SplitType(char, { types: 'words,chars' })
+    gsap.from(text.chars, {
+        scrollTrigger: {
+            trigger: char,
+            start: "top bottom",
+            end: "+=20%",
+            scrub: true, 
+            markers:false
+        },
+        opacity: 0,
+        stagger: 0.03,
+        y: 40,
+        rotationZ: 13
+    })
+}) 
+    gsap.to(movel.querySelector('.nickname'), {
+        y: 0, 
+        x:0,
+        ease: 'none',
+        scrollTrigger: {
+            trigger: movel.querySelector('.nickname'),
+            start: 'top bottom',
+            end: '+=3%',
+            scrub: 0.5,
+            markers: false
+        }
+    })
+    gsap.to(movel.querySelector('.block'), {
+        y: 0,  
+        x:0,
+        ease: 'none',
+        scrollTrigger: {
+           
+            trigger: movel, 
+            start: 'top bottom',
+            end: '+=' + window.innerHeight,
+            scrub: 0.5,
+            markers: false
+        }
+    }) 
+    
+    gsap.to(movel.querySelector('img'), {
+        y: 0, 
+        x:0,
+        ease: 'none',
+        scrollTrigger: {
+            trigger: movel,
+            start: 'top bottom',
+            end: '+=' + window.innerHeight,
+            scrub: 0.5,
+            markers: false
+        }
+    })
+    gsap.to(movel.querySelector('.huge-text'), {
+        y: 0, 
+        x:0,
+        yPercent:-50,
+        ease: 'none',
+        scrollTrigger: {
+            trigger: movel,
+            start: 'top bottom',
+            end: '+=100%',
+            scrub: 0.5,
+            markers: false
+        }
+    })
+})
+  }, 
+  
+	// all 
+	"all": function() {
+		
+	}
+  
+});
+
 let hbuttons = document.querySelectorAll('.Hbuttons')
 let returnColor
 function handleHover() {
