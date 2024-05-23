@@ -12,7 +12,7 @@ ScrollTrigger.saveStyles(".mobile, .desktop");
 ScrollTrigger.matchMedia({
 	
 	// desktop
-	"(min-width: 800px)": function() {
+	"(min-width: 1040px)": function() {
 	
 const sections = gsap.utils.toArray("section");
 console.log(sections)
@@ -128,7 +128,7 @@ document.querySelectorAll('.movel').forEach((movel) => {
   }, 
   
 	// mobile
-	"(max-width: 799px)": function() {
+	"(max-width: 1039px)": function() {
 	const sections = gsap.utils.toArray("section");
 console.log(sections)
 let scroollAnimation = gsap.to(sections, {
@@ -171,7 +171,7 @@ document.querySelectorAll('.movel').forEach((movel) => {
         scrollTrigger: {
             trigger: char,
             start: "top bottom",
-            end: "+=20%",
+            end: "+=18%",
             scrub: true, 
             markers:false
         },

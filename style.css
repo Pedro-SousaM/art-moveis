@@ -719,7 +719,7 @@ input[type=checkbox] {
     left: 1rem;
   }
   .buy-tittle {
-    font-size: 7vh;
+    font-size: 10vmin;
   }
   .header {
     display: block;
