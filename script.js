@@ -1,4 +1,5 @@
-
+const sections = gsap.utils.toArray("section"); 
+const wrapper = document.querySelector(".wrapper")
 document.querySelectorAll('.side-wrapper > a > span').forEach(span => {
     span.setAttribute('data-text', span.textContent);
 });
@@ -14,7 +15,7 @@ ScrollTrigger.matchMedia({
 	// desktop
 	"(min-width: 1040px)": function() {
 	
-const sections = gsap.utils.toArray("section");
+
 console.log(sections)
 let scroollAnimation = gsap.to(sections, {
     xPercent: -100 * (sections.length - 1),
@@ -25,7 +26,7 @@ let scroollAnimation = gsap.to(sections, {
         scrub: 0.5,
         snap: [0, 1 / (sections.length - 1), 1 / (sections.length - 1) * 2, 1 / (sections.length - 1) * 3],
         start: 'top top',
-        end: 3000,
+        end:3000,
 
     },
 })
@@ -48,6 +49,16 @@ gsap.to('.line', {
         scrub: 0.5,
         start: 'center center',
         end: 2000,
+    }
+}) 
+gsap.to('.home-button-wrapper', { 
+    scale:0,
+    ease: CustomEase.create("custom", "M0,0 C0,0 0.034,-0.137 0.166,-0.067 0.234,-0.03 0.332,0.034 0.4,0.1 0.615,0.309 1,1 1,1 "),
+    scrollTrigger: { 
+        trigger: '.logo',
+        scrub: 0.5,
+        start: 'top top',
+        end: 270,
     }
 })
 document.querySelectorAll('.movel').forEach((movel) => {
@@ -88,7 +99,7 @@ document.querySelectorAll('.movel').forEach((movel) => {
         }
     })
     gsap.to(movel.querySelector('.block'), {
-        x: 0,
+        x: 100,
         ease: 'none',
         scrollTrigger: {
             containerAnimation: scroollAnimation,
@@ -129,9 +140,8 @@ document.querySelectorAll('.movel').forEach((movel) => {
   
 	// mobile
 	"(max-width: 1039px)": function() {
-	const sections = gsap.utils.toArray("section");
 console.log(sections)
-let scroollAnimation = gsap.to(sections, {
+ gsap.to(sections, {
     ease: 'none',
     scrollTrigger: {
         trigger: '.wrapper',
@@ -152,6 +162,16 @@ logoTL.to('.logo', {
         scrub: 0.5,
         start: 'top top',
         end:'+='+window.innerHeight/1.5
+    }
+}) 
+gsap.to('.home-button-wrapper', { 
+    scale:0,
+    ease: CustomEase.create("custom", "M0,0 C0,0 0.034,-0.137 0.166,-0.067 0.234,-0.03 0.332,0.034 0.4,0.1 0.615,0.309 1,1 1,1 "),
+    scrollTrigger: { 
+        trigger: '.logo',
+        scrub: 0.5,
+        start: 'top top',
+        end: 170,
     }
 })
 gsap.to('.line', {
@@ -183,12 +203,12 @@ document.querySelectorAll('.movel').forEach((movel) => {
 }) 
     gsap.to(movel.querySelector('.nickname'), {
         y: 0, 
-        x:0,
+        x:-20,
         ease: 'none',
         scrollTrigger: {
-            trigger: movel.querySelector('.nickname'),
-            start: 'top bottom',
-            end: '+=3%',
+            trigger: movel,
+            start: 'top 90%',
+            end: '+=20%',
             scrub: 0.5,
             markers: false
         }
@@ -320,10 +340,30 @@ line1.forEach((line) => {
         line.scrollLeft = scrollLeft - walk;
     });
 })
-function goTo(string) {
-    gsap.to(window, { duration: 1, scrollTo: { y: "." + string, offsetY: 100, autoKill: true } }) 
+function goTo(string,roll) { 
+    if(roll=='desktop'){
+        gsap.to(window, { duration: 1, scrollTo: { y:  (1 / (sections.length - 1))*3000,offsetY: 1, autoKill: true } }) 
+    }
+    else if(roll=='mobile'){
+        gsap.to(window, { duration: 1, scrollTo: { y:  (1 / (sections.length))*wrapper.clientHeight,offsetY: 1, autoKill: true } }) 
+    }
+    else{
+        gsap.to(window, { duration: 1, scrollTo: { y: "." + string, offsetY: 100, offsetX:100, autoKill: true } }) 
     document.querySelector(".wraper > input").checked = false
+    }
+    
+} 
+function skipButton(){
+    ScrollTrigger.matchMedia({
+        "(min-width: 1040px)": function() {
+            goTo('','desktop')
+        }, 
+        "(max-width: 1039px)": function() {
+            goTo('','mobile')
+        }
+    })
 }
+
 
 
 
