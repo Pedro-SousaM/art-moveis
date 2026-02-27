@@ -9,9 +9,9 @@ Art-Móveis é um site conceitual de e-commerce desenvolvido para uma empresa de
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **HTML5** - Estrutura semântica
-- **CSS3** - Estilização e layout responsivo
-- **JavaScript** - Interatividade e lógica
+- **HTML5** 
+- **CSS3** 
+- **JavaScript** 
 - **GSAP** - Animações avançadas
   - ScrollTrigger
   - ScrollToPlugin
