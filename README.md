@@ -48,7 +48,7 @@ Art-Móveis é um site conceitual de e-commerce desenvolvido para uma empresa de
 
 **Menu Lateral:**
 
-![Menu Desktop](./gifs/lateral.gif)
+![Menu Desktop](./src/gifs/lateral.gif)
 
 **Scroll Horizontal:**
 
